@@ -1,11 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
- import { BiEditAlt } from "react-icons/bi";
- import { MdDelete } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { deleteUser } from '../Redux/userSlice';
-
-
 
 const Home = () => {
   const users = useSelector(state => state.users);
@@ -18,7 +14,7 @@ const Home = () => {
   return (
     <div className='container'>
       <h2>Crud App with JSON Server</h2>
-      <Link to="/create" className='btn btn-success my-3'>Create +</Link>
+      <Link to="/create" className='btn btn-success my-3'>Create <i class="fa-solid fa-user-plus fa-beat"></i></Link>
       <table className="table">
         <thead>
           <tr>
@@ -39,9 +35,9 @@ const Home = () => {
               <td>{user.dob}</td>
               <td>{user.prof}</td>
               <td>
-                <Link to={`/edit/${user.id}`} className='btn btn-sm btn-primary me-2'><BiEditAlt/>
+                <Link to={`/update/${user.id}`} className='btn btn-sm btn-primary me-2'><i class="fa-regular fa-pen-to-square fa-shake"></i>
                 </Link>
-                <button className='btn btn-sm btn-danger' onClick={() => handleDelete(user.id)}><MdDelete/>
+                <button className='btn btn-sm btn-danger' onClick={() => handleDelete(user.id)}><i class="fa-solid fa-trash fa-bounce"></i>
                 </button>
               </td>
             </tr>

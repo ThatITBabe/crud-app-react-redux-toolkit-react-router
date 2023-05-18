@@ -29,21 +29,21 @@ const Create = () => {
             <h3>Add New User</h3>
             <form onSubmit={handleSubmit}>
                 <div class="mb-3">
-                    <label for="name" class="form-label" placeholder='enter name'>Name:</label>
-                    <input type="text" name='name' class="form-control" onChange={e => setName(e.target.value)}/>
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" name='name' class="form-control" onChange={e => setName(e.target.value)} placeholder='enter name'/>
                 </div>                
                 <div class="mb-3">
-                    <label for="email" name='email' class="form-label" placeholder='enter email'>Email address:</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={e => setEmail(e.target.value)}/>
+                    <label for="email" name='email' class="form-label">Email address:</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={e => setEmail(e.target.value)} placeholder='enter email'/>
                     <div id="emailHelp" class="form-text text-light">We'll never share your email with anyone else.</div>
                 </div>                
                 <div class="mb-3">
-                    <label for="date" name='date' class="form-label" placeholder='enter dob'>Date of Birth:</label>
-                    <input type="date" class="form-control" onChange={e => setDOB(e.target.value)}/>
+                    <label for="date" name='date' class="form-label">Date of Birth:</label>
+                    <input type="date" class="form-control" onChange={e => setDOB(e.target.value)} placeholder='enter dob'/>
                 </div> 
                 <div class="mb-3">
-                    <label for="prof" class="form-label" placeholder='wetin dey put food for your table'>Profession:</label>
-                    <input type="text" name='prof' class="form-control" onChange={e => setProf(e.target.value)}/>
+                    <label for="prof" class="form-label">Profession:</label>
+                    <input type="text" name='prof' class="form-control" onChange={e => setProf(e.target.value)} placeholder='wetin dey put food for your table'/>
                 </div>               
                 <button type="submit" class="btn btn-info w-100 text-white">Submit</button>
             </form>

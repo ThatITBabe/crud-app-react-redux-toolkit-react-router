@@ -10,18 +10,20 @@ const userSlice = createSlice({
             state.push(action.payload)
         },
         updateUser: (state, action) => {
-            const {id, name, email} = action.payload;
-            const uu = state.find(user => user.id == id)
-            if (uu) {
-                uu.name = name;
-                uu.email = email; 
+            const {id, name, email, prof, dob} = action.payload;
+            const updatedUser = state.find(user => user.id == id)
+            if (updatedUser) {
+                updatedUser.name = name;
+                updatedUser.email = email; 
+                updatedUser.prof = prof; 
+                updatedUser.dob = dob; 
             }
         },
         deleteUser: (state, action) => {
             const {id} = action.payload;
-            const uu = state.find(user => user.id == id)
-            if(uu) {
-                return state.filter(f => f.id !== id)
+            const deletedUser = state.find(user => user.id == id)
+            if(deletedUser) {
+                return state.filter(user => user.id !== id)
             }
         }
     }
