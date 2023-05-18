@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-// import { Link } from 'react-router-dom'
 import { addUser } from '../Redux/userSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
@@ -7,9 +6,10 @@ import { useNavigate } from 'react-router-dom';
 const Create = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [dob, setDOB] = useState('');
+    const [prof, setProf] = useState('');
 
     const users = useSelector(state => state.users);
-        // console.log(users)
 
     const dispatch = useDispatch();
 
@@ -19,7 +19,7 @@ const Create = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(addUser({id: users[users.length - 1].id + 1, name, email}))
+        dispatch(addUser({id: users[users.length - 1].id + 1, name, email, dob, prof}))
         navigate('/')
 
     }
@@ -35,11 +35,18 @@ const Create = () => {
                 <div class="mb-3">
                     <label for="email" name='email' class="form-label" placeholder='enter email'>Email address:</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={e => setEmail(e.target.value)}/>
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <div id="emailHelp" class="form-text text-light">We'll never share your email with anyone else.</div>
                 </div>                
+                <div class="mb-3">
+                    <label for="date" name='date' class="form-label" placeholder='enter dob'>Date of Birth:</label>
+                    <input type="date" class="form-control" onChange={e => setDOB(e.target.value)}/>
+                </div> 
+                <div class="mb-3">
+                    <label for="prof" class="form-label" placeholder='wetin dey put food for your table'>Profession:</label>
+                    <input type="text" name='prof' class="form-control" onChange={e => setProf(e.target.value)}/>
+                </div>               
                 <button type="submit" class="btn btn-info w-100 text-white">Submit</button>
             </form>
-        {/* </Link> */}
         </div>
     </div>
   )

@@ -8,9 +8,12 @@ const Update = () => {
   const{id} = useParams();
   const users = useSelector(state => state.users);
   const existingUser = users.filter(f => f.id == id);
-  const {name, email} = existingUser[0];
-  const [uname, setName] = useState(name)
-  const [uemail, setEmail ] = useState(email)
+  const {name, email, dob, prof} = existingUser[0];
+  const [uname, setName] = useState(name);
+  const [uemail, setEmail ] = useState(email);
+  const [udob, setDOB ] = useState(dob);
+  const [uprof, setProf ] = useState(prof);
+
 
   const dispatch= useDispatch();
   const navigate = useNavigate()
@@ -20,7 +23,9 @@ const Update = () => {
     dispatch(updateUser({
       id: id,
       name: uname,
-      email: uemail,  
+      email: uemail,
+      dob: udob,
+      prof: uprof,
     }))
     navigate('/')
   }
@@ -38,10 +43,17 @@ const Update = () => {
                     <label for="email" name='email' class="form-label" placeholder='enter email'>Email address:</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={uemail} onChange={e => setEmail(e.target.value)}/>
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                </div>                
+                </div>
+                <div class="mb-3">
+                    <label for="date" name='date' class="form-label" placeholder='enter dob'>Date of Birth:</label>
+                    <input type="date" class="form-control" value={udob} onChange={e => setDOB(e.target.value)}/>
+                </div>  
+                <div class="mb-3">
+                    <label for="prof" class="form-label" placeholder='wetin dey put food for your table?'>Profession:</label>
+                    <input type="text" name='prof' class="form-control" value={uprof} onChange={e => setProf(e.target.value)}/>
+                </div>      
                 <button type="submit" class="btn btn-info w-100 text-white">Update</button>
             </form>
-        {/* </Link> */}
         </div>
     </div>
   )

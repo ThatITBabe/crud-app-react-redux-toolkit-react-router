@@ -15,7 +15,6 @@ const Home = () => {
   const handleDelete = id => {
     dispatch(deleteUser({id: id}))
   }
-  // const dispatch = useDispatch()
   return (
     <div className='container'>
       <h2>Crud App with JSON Server</h2>
@@ -26,6 +25,8 @@ const Home = () => {
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
+            <th scope="col">DOB</th>
+            <th scope="col">Profession</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -35,6 +36,8 @@ const Home = () => {
               <td>{user.id}</td>
               <td>{user.name}</td>
               <td>{user.email}</td>
+              <td>{user.dob}</td>
+              <td>{user.prof}</td>
               <td>
                 <Link to={`/edit/${user.id}`} className='btn btn-sm btn-primary me-2'><BiEditAlt/>
                 </Link>
